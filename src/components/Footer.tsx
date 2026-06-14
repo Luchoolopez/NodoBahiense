@@ -28,7 +28,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#030A15] border-t border-white/5">
+    <footer className="relative bg-[#091D35] border-t border-white/6">
       {/* Top accent line */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 

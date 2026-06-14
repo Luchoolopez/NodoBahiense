@@ -30,7 +30,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-[#040D1A]/80 backdrop-blur-xl border-b border-white/5"
+            ? "py-3 bg-[#0C2240]/90 backdrop-blur-xl border-b border-white/5"
             : "py-6"
         }`}
       >

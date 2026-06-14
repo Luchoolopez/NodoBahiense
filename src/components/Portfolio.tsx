@@ -9,137 +9,110 @@ const projects = [
     category: "E-commerce",
     description:
       "Tienda online para distribuidora de alimentos. Catálogo de más de 2.000 productos, integración con MercadoPago y gestión de pedidos en tiempo real.",
-    gradient: "from-[#0EA5E9] to-[#6366F1]",
-    tag: "E-commerce",
+    accent: "#4DC8FF",
     year: "2024",
-    size: "large",
+    metric: "+180% ventas",
   },
   {
     name: "LexPro",
     category: "Sistema a Medida",
     description:
       "Sistema de gestión para estudio jurídico. Control de expedientes, facturación, agenda y portal de clientes.",
-    gradient: "from-[#10B981] to-[#0EA5E9]",
-    tag: "Sistema",
+    accent: "#93C5FD",
     year: "2024",
-    size: "small",
+    metric: "−60% tiempo admin.",
   },
   {
     name: "Konstrux",
     category: "Landing Page",
     description:
       "Landing page de alta conversión para empresa constructora. +340% de leads en el primer mes.",
-    gradient: "from-[#F59E0B] to-[#EC4899]",
-    tag: "Landing",
+    accent: "#A5B4FC",
     year: "2023",
-    size: "small",
+    metric: "+340% leads",
   },
   {
     name: "VidaFit Studio",
-    category: "Desarrollo Web",
+    category: "Web App",
     description:
-      "Plataforma para gimnasio boutique. Reserva de clases, membresías, pagos online y app PWA para usuarios.",
-    gradient: "from-[#EC4899] to-[#6366F1]",
-    tag: "Web App",
+      "Plataforma para gimnasio boutique. Reserva de clases, membresías, pagos online y PWA para usuarios.",
+    accent: "#7DD3FC",
     year: "2023",
-    size: "large",
+    metric: "PWA · pagos online",
   },
 ];
 
 export default function Portfolio() {
   return (
     <section className="section-padding relative" id="portfolio">
-      <div className="absolute inset-0 bg-[#040D1A]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="absolute inset-0 bg-[#0B2038]" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="absolute inset-0 grid-pattern opacity-60" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
         >
           <div>
-            <div className="tag-pill mb-6">
-              <span>✦</span> Portfolio
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-              Proyectos que
-              <br />
+            <p className="section-label mb-5">Portfolio</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Proyectos que{" "}
               <span className="font-display italic gradient-text">hablan por sí solos</span>
             </h2>
           </div>
-          <p className="text-white/45 text-base max-w-xs md:text-right leading-relaxed">
-            Cada proyecto es una historia de transformación digital.
-            Diseño, desarrollo y resultados medibles.
+          <p className="text-white/35 text-sm max-w-xs md:text-right leading-relaxed">
+            Cada proyecto es una historia de transformación digital con resultados medibles.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* List */}
+        <div className="flex flex-col divide-y divide-white/6">
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`group relative rounded-3xl overflow-hidden cursor-pointer ${
-                project.size === "large" ? "md:row-span-1" : ""
-              }`}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="group flex flex-col md:flex-row md:items-center gap-6 py-8 cursor-pointer"
             >
-              {/* Image / Gradient placeholder */}
-              <div
-                className={`relative bg-gradient-to-br ${project.gradient} p-8 flex flex-col justify-between min-h-[280px]`}
-              >
-                {/* Noise overlay */}
-                <div className="absolute inset-0 opacity-20 mix-blend-overlay"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
-                  }}
-                />
+              {/* Number */}
+              <span className="text-xs text-white/20 font-mono w-8 flex-shrink-0">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-                {/* Grid pattern overlay */}
-                <div className="absolute inset-0 grid-pattern opacity-20" />
-
-                {/* Top meta */}
-                <div className="relative flex items-center justify-between z-10">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-white/70 bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
-                    {project.tag}
+              {/* Name + category */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
+                    {project.name}
+                  </h3>
+                  <span
+                    className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+                    style={{ color: project.accent, background: `${project.accent}12`, border: `1px solid ${project.accent}20` }}
+                  >
+                    {project.category}
                   </span>
-                  <span className="text-[11px] text-white/50">{project.year}</span>
                 </div>
+                <p className="text-white/38 text-sm leading-relaxed max-w-lg">
+                  {project.description}
+                </p>
+              </div>
 
-                {/* Floating shapes */}
-                <div className="absolute top-12 right-8 w-20 h-20 rounded-full bg-white/10 blur-2xl" />
-                <div className="absolute bottom-16 left-8 w-16 h-16 rounded-full bg-black/20 blur-xl" />
+              {/* Metric + year */}
+              <div className="md:text-right flex-shrink-0">
+                <div className="text-white/80 text-sm font-semibold mb-1">{project.metric}</div>
+                <div className="text-white/25 text-xs">{project.year}</div>
+              </div>
 
-                {/* Decorative pattern */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-5">
-                  <div className="w-64 h-64 rounded-full border-2 border-white" />
-                  <div className="absolute w-48 h-48 rounded-full border border-white" />
-                  <div className="absolute w-32 h-32 rounded-full border border-white" />
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <div className="mb-3">
-                    <span className="text-xs text-white/60 font-medium">{project.category}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-5 py-3 rounded-full font-semibold text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    Ver proyecto <ArrowUpRight size={16} />
-                  </div>
-                </div>
+              {/* Arrow */}
+              <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/25 group-hover:border-white/30 group-hover:text-white/70 transition-all duration-200 flex-shrink-0">
+                <ArrowUpRight size={15} />
               </div>
             </motion.div>
           ))}
@@ -147,15 +120,15 @@ export default function Portfolio() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-14"
+          className="mt-14 flex flex-col sm:flex-row items-center gap-4"
         >
-          <p className="text-white/40 text-sm mb-4">¿Quieres tu proyecto aquí?</p>
-          <a href="#contacto" className="btn-primary">
-            Hablemos de tu idea <ArrowUpRight size={16} />
+          <a href="#contacto" className="btn-primary text-sm px-6 py-3">
+            Hablemos de tu idea <ArrowUpRight size={15} />
           </a>
+          <p className="text-white/25 text-sm">¿Querés tu proyecto aquí?</p>
         </motion.div>
       </div>
     </section>
