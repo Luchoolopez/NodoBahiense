@@ -15,14 +15,13 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       id="hero"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0C2240]" />
-      <div className="absolute inset-0 grid-pattern opacity-100" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      {/* Subtle grid */}
+      <div className="absolute inset-0 grid-pattern" />
+      <div className="section-divider" />
 
       {/* Main content */}
       <motion.div
-        className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-36 pb-24"
+        className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-6 text-center pt-28 sm:pt-36 pb-20 sm:pb-24"
       >
         {/* Overline */}
         <motion.p
@@ -41,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-[82px] font-bold leading-[1.06] tracking-tight mb-8"
+          className="text-[36px] sm:text-5xl md:text-6xl lg:text-[78px] font-bold leading-[1.08] tracking-tight mb-6 sm:mb-8"
         >
           <span className="text-white">Transformamos ideas</span>
           <br />
@@ -66,13 +65,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.38 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-24"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-16 sm:mb-24"
         >
-          <a href="#contacto" className="btn-primary text-sm px-7 py-3.5 group">
+          <a href="#contacto" className="btn-primary text-sm px-7 py-3.5 group justify-center">
             Solicitar presupuesto
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#portfolio" className="btn-secondary text-sm px-7 py-3.5">
+          <a href="#portfolio" className="btn-secondary text-sm px-7 py-3.5 justify-center">
             Ver proyectos
           </a>
         </motion.div>
@@ -82,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-10 border-t border-white/8 pt-10"
+          className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 border-t border-white/8 pt-8 sm:pt-10"
         >
           {stats.map((stat, i) => (
             <div key={i} className="text-center">

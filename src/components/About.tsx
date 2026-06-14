@@ -36,15 +36,15 @@ const highlights = [
 export default function About() {
   return (
     <section className="section-padding relative" id="nosotros">
-      <div className="absolute inset-0 bg-[#0C2240]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="absolute inset-0 bg-black/15" />
+      <div className="section-divider" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
@@ -74,7 +74,7 @@ export default function About() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.08 * i, duration: 0.4 }}
-                  className="bg-[#0C2240] p-6"
+                  className="bg-[#0B0A12] p-6"
                 >
                   <div className="text-3xl font-bold text-white mb-1">{h.number}</div>
                   <div className="text-white/35 text-xs uppercase tracking-wide">{h.label}</div>
@@ -85,8 +85,8 @@ export default function About() {
 
           {/* Right */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="flex flex-col gap-0 divide-y divide-white/6 border border-white/7 rounded-xl overflow-hidden"

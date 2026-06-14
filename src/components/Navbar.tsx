@@ -30,7 +30,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-[#0C2240]/90 backdrop-blur-xl border-b border-white/5"
+            ? "py-3 bg-[#0B0A12]/85 backdrop-blur-xl border-b border-white/6"
             : "py-6"
         }`}
       >
@@ -99,14 +99,15 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed top-16 left-4 right-4 z-40 glass rounded-2xl p-6 flex flex-col gap-4"
+            className="fixed top-[60px] left-3 right-3 z-40 rounded-xl p-5 flex flex-col gap-1"
+            style={{ background: "rgba(11,10,18,0.97)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-white/80 hover:text-white font-medium py-2 border-b border-white/5 last:border-0 transition-colors"
+                className="text-white/70 hover:text-white font-medium py-3 border-b border-white/5 last:border-0 transition-colors text-base"
               >
                 {link.label}
               </a>
@@ -114,7 +115,7 @@ export default function Navbar() {
             <a
               href="#contacto"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary text-center mt-2"
+              className="btn-primary justify-center mt-3 text-sm"
             >
               Solicitar presupuesto
             </a>

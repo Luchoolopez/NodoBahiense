@@ -45,9 +45,8 @@ const projects = [
 export default function Portfolio() {
   return (
     <section className="section-padding relative" id="portfolio">
-      <div className="absolute inset-0 bg-[#0B2038]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
       <div className="absolute inset-0 grid-pattern opacity-60" />
+      <div className="section-divider" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -79,40 +78,69 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="group flex flex-col md:flex-row md:items-center gap-6 py-8 cursor-pointer"
+              className="group py-7 sm:py-8 cursor-pointer"
             >
-              {/* Number */}
-              <span className="text-xs text-white/20 font-mono w-8 flex-shrink-0">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              {/* Name + category */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
-                    {project.name}
-                  </h3>
-                  <span
-                    className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
-                    style={{ color: project.accent, background: `${project.accent}12`, border: `1px solid ${project.accent}20` }}
-                  >
-                    {project.category}
-                  </span>
+              {/* Mobile layout */}
+              <div className="md:hidden">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="text-xs text-white/20 font-mono flex-shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-bold text-white leading-tight">
+                        {project.name}
+                      </h3>
+                      <span
+                        className="text-[9px] font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded inline-block mt-1"
+                        style={{ color: project.accent, background: `${project.accent}12`, border: `1px solid ${project.accent}20` }}
+                      >
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/25 group-hover:border-white/30 group-hover:text-white/60 transition-all flex-shrink-0 mt-0.5">
+                    <ArrowUpRight size={14} />
+                  </div>
                 </div>
-                <p className="text-white/38 text-sm leading-relaxed max-w-lg">
+                <p className="text-white/38 text-sm leading-relaxed mb-3 pl-7">
                   {project.description}
                 </p>
+                <div className="flex items-center gap-3 pl-7">
+                  <span className="text-white/70 text-xs font-semibold">{project.metric}</span>
+                  <span className="text-white/15 text-xs">·</span>
+                  <span className="text-white/25 text-xs">{project.year}</span>
+                </div>
               </div>
 
-              {/* Metric + year */}
-              <div className="md:text-right flex-shrink-0">
-                <div className="text-white/80 text-sm font-semibold mb-1">{project.metric}</div>
-                <div className="text-white/25 text-xs">{project.year}</div>
-              </div>
-
-              {/* Arrow */}
-              <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/25 group-hover:border-white/30 group-hover:text-white/70 transition-all duration-200 flex-shrink-0">
-                <ArrowUpRight size={15} />
+              {/* Desktop layout */}
+              <div className="hidden md:flex md:items-center gap-6">
+                <span className="text-xs text-white/20 font-mono w-8 flex-shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3 mb-1">
+                    <h3 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
+                      {project.name}
+                    </h3>
+                    <span
+                      className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+                      style={{ color: project.accent, background: `${project.accent}12`, border: `1px solid ${project.accent}20` }}
+                    >
+                      {project.category}
+                    </span>
+                  </div>
+                  <p className="text-white/38 text-sm leading-relaxed max-w-lg">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="text-right flex-shrink-0">
+                  <div className="text-white/80 text-sm font-semibold mb-1">{project.metric}</div>
+                  <div className="text-white/25 text-xs">{project.year}</div>
+                </div>
+                <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/25 group-hover:border-white/30 group-hover:text-white/70 transition-all duration-200 flex-shrink-0">
+                  <ArrowUpRight size={15} />
+                </div>
               </div>
             </motion.div>
           ))}

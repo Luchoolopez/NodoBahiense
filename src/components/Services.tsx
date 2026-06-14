@@ -51,8 +51,8 @@ const services = [
 export default function Services() {
   return (
     <section className="section-padding relative" id="servicios">
-      <div className="absolute inset-0 bg-[#0C2240]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="section-divider" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -77,7 +77,7 @@ export default function Services() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05] rounded-2xl overflow-hidden">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
@@ -87,7 +87,7 @@ export default function Services() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group relative bg-[#0C2240] hover:bg-[#0f2a50] transition-colors duration-200 p-8"
+                className="group relative bg-[#0B0A12] hover:bg-white/[0.03] transition-colors duration-200 p-6 md:p-8"
               >
                 {/* Icon */}
                 <div className="mb-6">

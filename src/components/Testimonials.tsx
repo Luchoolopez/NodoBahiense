@@ -41,8 +41,8 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="section-padding relative" id="testimonios">
-      <div className="absolute inset-0 bg-[#0B2038]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="section-divider" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}

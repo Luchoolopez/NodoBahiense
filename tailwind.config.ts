@@ -9,16 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: "#040D1A",
-          900: "#0A2540",
-          800: "#0D3060",
-          700: "#0F3D7A",
-        },
         accent: {
-          DEFAULT: "#38BDF8",
-          dark: "#0EA5E9",
-          glow: "#7DD3FC",
+          DEFAULT: "#7C6EF8",
+          dark: "#6355E8",
+          glow: "#A5B4FC",
         },
       },
       fontFamily: {

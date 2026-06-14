@@ -43,10 +43,9 @@ const steps = [
 export default function Process() {
   return (
     <section className="section-padding relative" id="proceso">
-      <div className="absolute inset-0 bg-[#0C2240]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="section-divider" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -63,41 +62,59 @@ export default function Process() {
           </h2>
         </motion.div>
 
+        {/* Column headers — desktop only */}
+        <div className="hidden md:grid md:grid-cols-[56px_220px_1fr_96px] gap-x-10 pb-4 border-b border-white/6 mb-0">
+          <span />
+          <span className="section-label">Etapa</span>
+          <span className="section-label">Descripción</span>
+          <span className="section-label text-right">Duración</span>
+        </div>
+
         {/* Steps */}
         <div className="flex flex-col divide-y divide-white/6">
           {steps.map((step, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group grid grid-cols-[4rem_1fr_auto] md:grid-cols-[5rem_1fr_1fr_auto] items-start gap-6 py-8"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
             >
-              {/* Number */}
-              <span className="text-3xl font-black text-white/8 font-display leading-none pt-1">
-                {step.number}
-              </span>
+              {/* Desktop layout */}
+              <div className="hidden md:grid md:grid-cols-[56px_220px_1fr_96px] gap-x-10 items-baseline py-8">
+                <span className="text-[28px] font-black text-white/10 font-display leading-none">
+                  {step.number}
+                </span>
+                <span className="text-base font-semibold text-white">
+                  {step.title}
+                </span>
+                <p className="text-[15px] text-white/45 leading-relaxed">
+                  {step.description}
+                </p>
+                <span className="text-sm text-white/30 font-medium text-right whitespace-nowrap">
+                  {step.duration}
+                </span>
+              </div>
 
-              {/* Title */}
-              <h3 className="text-base font-semibold text-white pt-0.5 md:pt-0">
-                {step.title}
-              </h3>
-
-              {/* Description — hidden on small */}
-              <p className="hidden md:block text-white/38 text-sm leading-relaxed">
-                {step.description}
-              </p>
-
-              {/* Duration */}
-              <span className="text-xs text-white/30 font-medium pt-0.5 text-right whitespace-nowrap">
-                {step.duration}
-              </span>
-
-              {/* Mobile description */}
-              <p className="md:hidden text-white/38 text-sm leading-relaxed col-span-2 col-start-2">
-                {step.description}
-              </p>
+              {/* Mobile layout */}
+              <div className="md:hidden py-7">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl font-black text-white/10 font-display leading-none w-10">
+                      {step.number}
+                    </span>
+                    <span className="text-base font-semibold text-white">
+                      {step.title}
+                    </span>
+                  </div>
+                  <span className="text-xs text-white/30 font-medium whitespace-nowrap ml-4">
+                    {step.duration}
+                  </span>
+                </div>
+                <p className="text-[15px] text-white/45 leading-relaxed pl-14">
+                  {step.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

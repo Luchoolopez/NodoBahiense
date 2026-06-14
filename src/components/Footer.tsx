@@ -28,7 +28,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#091D35] border-t border-white/6">
+    <footer className="relative bg-black/30 border-t border-white/6">
       {/* Top accent line */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
@@ -38,10 +38,10 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 py-12 sm:py-16"
         >
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-5 group w-fit">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-accent to-navy-800 flex items-center justify-center">
                 <span className="text-white font-bold text-sm font-display">N</span>
